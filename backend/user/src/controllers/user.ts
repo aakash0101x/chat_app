@@ -16,7 +16,7 @@ export const loginUser = TryCatch(async(req,res)=>{
         return ;    
     }
 
-    const otp = Math.floor(1000000+Math.random()*900000).toString();
+    const otp = Math.floor(100000+Math.random()*900000).toString();
     const otpKey = `otp:${email}`;
     await redisClient.set(otpKey, otp, {
         EX: 300
